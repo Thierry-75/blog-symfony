@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}New avatar
+{% endblock %}
+{% block body %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				{% block side %}
+					{% include("pages/user/_side_edit_avatar.html.twig") %}
+				{% endblock %}
+			</div>
+			<div class="col-md-10">
+				{% block center %}
+					{% include("pages/user/_form_edit_avatar.html.twig") %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

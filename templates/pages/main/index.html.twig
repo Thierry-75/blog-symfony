@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		{% for flash_success in app.flashes('success') %}
+			<div class="alert alert-dismissible alert-success" role="alert">
+			<strong>{{ flash_success }}</strong>
+			<button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}list users
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+	<div class="col-md-3">
+		{% block side %}
+        {% include("pages/user/_side_user.html.twig") %}
+		{% endblock %}
+	</div>
+	<div class="col-md-9">
+		{% block center %}
+	{% include("pages/user/_list_user.html.twig") %}
+		{% endblock %}
+	</div>
+    </div>
+{% endblock %}

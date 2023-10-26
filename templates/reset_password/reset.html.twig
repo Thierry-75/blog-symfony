@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <div class="row">
+	<div class="col-md-3">
+		{% block side %}
+        {% include("/reset_password/_side_reset_password.html.twig") %}
+		{% endblock %}
+	</div>
+	<div class="col-md-9">
+		{% block center %}
+	{% include("/reset_password/_reset_password_form.html.twig") %}
+		{% endblock %}
+	</div>
+    </div>
+{% endblock %}

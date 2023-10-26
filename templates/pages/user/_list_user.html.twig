@@ -1,0 +1,51 @@
+<div class="col-md-10 mt-4">
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-dismissible alert-primary" role="alert">
+			<strong>{{ message }}</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	{% endfor %}
+
+	<h1 class="d-flex justify-content-left text-dark mt-4">Suscribers</h1>
+
+	{% if users is not empty %}
+		<div class="count mt-2">
+			<span class=" badge bg-light text-black d-flex justify-content-end">Number of users :
+				{{ users.getTotalItemCount }}</span>
+		</div>
+		<table class="table table-hover mt-4">
+			<thead>
+				<tr class="table-active table-info">
+					<th scope="col" class="text-dark">Id:</th>
+					<th scope="col" class="text-dark">Email:</th>
+					<th scope="col" class="text-dark">Role:</th>
+					<th scope="col" class="text-dark">Date:</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+					{% if loop.index is divisible by(2) %}
+						<tr class="table-secondary">
+						{% else %}
+							<tr class="table-light"></tr>
+						{% endif %}
+						<th scope="row">{{ user.id }}</th>
+						<td>
+							<a href="#" data-bs-placement="top" data-bs-toggle="tooltip" title="Voir : {{user.email | capitalize }} " data-bs-trigger="hover">
+								{{ user.email | capitalize }}</a>
+						</td>
+						<td>{{ user.roles | join(', ') |lower}}</td>
+						<td>{{ user.createAt |date("d-m-Y H:i:s") }}</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{# display navigation #}
+		<div class="navigation d-flex justify-content-center mt-4">
+			{{ knp_pagination_render(users) }}
+		</div>
+	{% else %}
+	<h3>No Suscribers</h3>
+	{% endif %}
+</div>

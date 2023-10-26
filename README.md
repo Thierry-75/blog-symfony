@@ -1,2 +1,2 @@
 # blog-symfony
-blog-symfony-6
+blog-symfony6

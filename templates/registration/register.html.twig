@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-3">
+			{% block side %}{% endblock %}
+		</div>
+		<div class="col-md-9">
+			{% block center %}
+				<div class="container justify-content-center">
+					{% for flash_error in app.flashes('verify_email_error') %}
+						<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+					{% endfor %}
+					<!--needs-validation-->
+					{{ form_start(registrationForm,{'attr': {'novalidate': 'novalidate'}}) }}
+
+					<legend>
+						<h3>Register</h3>
+					</legend>
+
+					<div class="form-group">
+						<div class="col-md-9 mt-1">
+							{{ form_label(registrationForm.email)}}
+							{{ form_widget(registrationForm.email) }}
+							<div class="form-error">
+								<small>{{ form_errors(registrationForm.email) }}</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-9 mt-1">
+							{{ form_label(registrationForm.plainPassword)}}
+							{{ form_widget(registrationForm.plainPassword) }}
+							<div class="form-error">
+								<small>{{ form_errors(registrationForm.plainPassword) }}</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div>
+							{{ form_row(registrationForm._token)}}
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12 mt-4">
+							{{ form_label(registrationForm.agreeTerms)}}
+							{{ form_widget(registrationForm.agreeTerms) }}
+							<div class="form-error">
+								<small>{{ form_errors(registrationForm.agreeTerms) }}</small>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-9">
+							{{ form_row(registrationForm.submit )}}
+						</div>
+					</div>
+
+					{{ form_end(registrationForm) }}
+				</div>
+			{% endblock %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+    	
+		<div class="container">
+		<div class="row">
+		<h3 class="mt-4 text-primary">update avatar</h3>
+		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+		<div class="form-group col-md-8">
+			{{ form_label(form.pseudo) }}
+			{{ form_widget(form.pseudo) }}
+			<div class="form-error">
+				{{ form_errors(form.pseudo) }}
+			</div>
+		</div>
+		<div class="form-group col-md-8">
+			
+			{{ form_widget(form.avatar) }}
+			<div class="form-error">
+				{{ form_errors(form.avatar) }}
+			</div>
+		</div>
+		<div class="form-group col-md-8">
+			{{ form_row(form.submit) }}
+		</div>
+
+		{{ form_end(form) }}
+		</div>
+		</div>

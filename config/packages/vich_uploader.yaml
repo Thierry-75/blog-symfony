@@ -1,0 +1,18 @@
+vich_uploader:
+    db_driver: orm
+    metadata: 
+        type: attribute
+
+    mappings:
+        avatars:
+            uri_prefix: /images/avatars
+            upload_destination: "%kernel.project_dir%/public/images/avatars"
+            namer:
+                service: Vich\UploaderBundle\Naming\HashNamer
+                options: { algorithm: "sha256", length: 30 }
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+

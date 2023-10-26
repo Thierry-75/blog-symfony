@@ -1,0 +1,11 @@
+    	<h3 class="mt-4">update profil</h3>
+		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+		<div class="form-group row">
+			<div class="col-md-8">
+				{{ form_widget(form.avatar, {'attr':{'class':'form-file'}})}}
+				<div class="form-error">
+					{{ form_errors(form.avatar,{'attr':{'class':'form-control'}})}}
+				</div>
+			</div>
+		</div>
+		{{ form_end(form) }}
